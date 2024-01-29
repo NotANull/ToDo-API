@@ -6,7 +6,6 @@ import com.notanull.todoapp.persistence.entity.TaskStatus;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Component
 public class TaskInDtoToTask implements ITaskMapper<TaskDto, Task>{
