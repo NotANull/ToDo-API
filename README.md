@@ -13,6 +13,7 @@
     <li>Obtener todas las tareas filtradas por estado</li>
     <li>Marcar una tarea como cumplida</li>
     <li>Eliminar una tarea</li>
+    <li>Validaciones de datos</li>
   </ul>
 </div>
 
