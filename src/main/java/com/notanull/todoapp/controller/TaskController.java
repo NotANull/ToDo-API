@@ -1,8 +1,9 @@
-package com.notanull.todoapp.todoApp.controller;
+package com.notanull.todoapp.controller;
 
-import com.notanull.todoapp.todoApp.dto.request.TaskDto;
-import com.notanull.todoapp.todoApp.persistence.entity.TaskStatus;
-import com.notanull.todoapp.todoApp.service.TaskServiceImp;
+import com.notanull.todoapp.dto.request.TaskDto;
+import com.notanull.todoapp.persistence.entity.TaskStatus;
+import com.notanull.todoapp.service.TaskServiceImp;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createTask(@RequestBody TaskDto taskDto) {
+    public ResponseEntity<?> createTask(@RequestBody @Valid TaskDto taskDto) {
         return new ResponseEntity<>(this.taskService.createTask(taskDto), HttpStatus.OK);
     }
 

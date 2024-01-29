@@ -1,4 +1,4 @@
-package com.notanull.todoapp.todoApp.dto.response;
+package com.notanull.todoapp.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
