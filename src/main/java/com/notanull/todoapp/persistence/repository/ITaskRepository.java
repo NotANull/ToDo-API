@@ -1,7 +1,7 @@
-package com.notanull.todoapp.todoApp.persistence.repository;
+package com.notanull.todoapp.persistence.repository;
 
-import com.notanull.todoapp.todoApp.persistence.entity.Task;
-import com.notanull.todoapp.todoApp.persistence.entity.TaskStatus;
+import com.notanull.todoapp.persistence.entity.Task;
+import com.notanull.todoapp.persistence.entity.TaskStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

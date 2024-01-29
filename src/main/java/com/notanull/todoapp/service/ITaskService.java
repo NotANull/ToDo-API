@@ -1,9 +1,10 @@
-package com.notanull.todoapp.todoApp.service;
+package com.notanull.todoapp.service;
 
 
-import com.notanull.todoapp.todoApp.dto.request.TaskDto;
-import com.notanull.todoapp.todoApp.dto.response.ResponseTask;
-import com.notanull.todoapp.todoApp.persistence.entity.TaskStatus;
+
+import com.notanull.todoapp.dto.request.TaskDto;
+import com.notanull.todoapp.dto.response.ResponseTask;
+import com.notanull.todoapp.persistence.entity.TaskStatus;
 
 import java.util.List;
 

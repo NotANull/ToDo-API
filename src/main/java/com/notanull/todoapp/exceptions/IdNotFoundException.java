@@ -1,4 +1,4 @@
-package com.notanull.todoapp.todoApp.exceptions;
+package com.notanull.todoapp.exceptions;
 
 public class IdNotFoundException extends RuntimeException{
 

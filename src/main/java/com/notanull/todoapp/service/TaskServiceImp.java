@@ -1,12 +1,12 @@
-package com.notanull.todoapp.todoApp.service;
+package com.notanull.todoapp.service;
 
-import com.notanull.todoapp.todoApp.dto.request.TaskDto;
-import com.notanull.todoapp.todoApp.dto.response.ResponseTask;
-import com.notanull.todoapp.todoApp.exceptions.IdNotFoundException;
-import com.notanull.todoapp.todoApp.mapper.TaskInDtoToTask;
-import com.notanull.todoapp.todoApp.persistence.entity.Task;
-import com.notanull.todoapp.todoApp.persistence.entity.TaskStatus;
-import com.notanull.todoapp.todoApp.persistence.repository.ITaskRepository;
+import com.notanull.todoapp.dto.request.TaskDto;
+import com.notanull.todoapp.dto.response.ResponseTask;
+import com.notanull.todoapp.exceptions.IdNotFoundException;
+import com.notanull.todoapp.mapper.TaskInDtoToTask;
+import com.notanull.todoapp.persistence.entity.Task;
+import com.notanull.todoapp.persistence.entity.TaskStatus;
+import com.notanull.todoapp.persistence.repository.ITaskRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

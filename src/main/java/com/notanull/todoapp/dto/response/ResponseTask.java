@@ -1,6 +1,6 @@
-package com.notanull.todoapp.todoApp.dto.response;
+package com.notanull.todoapp.dto.response;
 
-import com.notanull.todoapp.todoApp.persistence.entity.TaskStatus;
+import com.notanull.todoapp.persistence.entity.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

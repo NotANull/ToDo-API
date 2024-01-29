@@ -1,8 +1,8 @@
-package com.notanull.todoapp.todoApp.mapper;
+package com.notanull.todoapp.mapper;
 
-import com.notanull.todoapp.todoApp.dto.request.TaskDto;
-import com.notanull.todoapp.todoApp.persistence.entity.Task;
-import com.notanull.todoapp.todoApp.persistence.entity.TaskStatus;
+import com.notanull.todoapp.dto.request.TaskDto;
+import com.notanull.todoapp.persistence.entity.Task;
+import com.notanull.todoapp.persistence.entity.TaskStatus;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
