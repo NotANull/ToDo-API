@@ -20,9 +20,13 @@
 <hr>
 
 <div>
-  <b>HERRAMIENTAS UTILIZADAS 🧰</b>
+  <b>DEPENDENCIAS - HERRAMIENTAS UTILIZADAS 🧰</b>
   <ul>
-    <li>Spring Boot</li>
+    <li>Spring Web</li>
+    <li>Lombok</li>
+    <li>Spring Data JPA</li>
+    <li>Validation</li>
     <li>H2 como base de datos embebida</li>
+    <li>Postman para probar endpoints</li>
   </ul>
 </div>
