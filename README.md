@@ -27,6 +27,7 @@
     <li>Spring Data JPA</li>
     <li>Validation</li>
     <li>H2 como base de datos embebida</li>
+    <li>Modelmapper</li>
     <li>Postman para probar endpoints</li>
   </ul>
 </div>
