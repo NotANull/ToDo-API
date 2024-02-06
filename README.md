@@ -11,9 +11,10 @@
     <li>Crear Tareas</li>
     <li>Obtener todas las tareas</li>
     <li>Obtener todas las tareas filtradas por estado</li>
-    <li>Marcar una tarea como cumplida</li>
+    <li>Marcar una tarea como finalizada</li>
     <li>Eliminar una tarea</li>
     <li>Validaciones de datos</li>
+    <li>Marcar como LATE a tareas fuera del tiempo estimado</li>
   </ul>
 </div>
 
