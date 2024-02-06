@@ -3,19 +3,23 @@ package com.notanull.todoapp.service;
 import com.notanull.todoapp.dto.request.TaskDto;
 import com.notanull.todoapp.dto.response.ResponseTask;
 import com.notanull.todoapp.exceptions.IdNotFoundException;
+import com.notanull.todoapp.exceptions.OverdueTaskException;
 import com.notanull.todoapp.mapper.TaskInDtoToTask;
 import com.notanull.todoapp.persistence.entity.Task;
 import com.notanull.todoapp.persistence.entity.TaskStatus;
 import com.notanull.todoapp.persistence.repository.ITaskRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class TaskServiceImp implements ITaskService{
+public class TaskServiceImp implements ITaskService {
 
     private final ITaskRepository taskRepository;
     private final TaskInDtoToTask mapper;
@@ -54,10 +58,15 @@ public class TaskServiceImp implements ITaskService{
     @Transactional
     @Override
     public String updateTaskAsFinished(Long id) {
-        if (this.taskRepository.findById(id).isEmpty()) {
+        Optional<Task> task= this.taskRepository.findById(id);
+        if (task.isEmpty()) {
             throw new IdNotFoundException("Id not found");
         }
+        if (task.get().getTaskStatus().equals(TaskStatus.LATE)) {
+            throw new OverdueTaskException("You cannot change the task status. Request an extension for the estimated time to complete it");
+        }
         this.taskRepository.markTaskAsFinished(id);
+        this.taskRepository.updateTaskStatus(id, 2);
         return "Task updated successfully";
     }
 
@@ -69,4 +78,18 @@ public class TaskServiceImp implements ITaskService{
         this.taskRepository.deleteById(id);
         return "Task deleted successfully";
     }
+
+    @Transactional
+    @Scheduled(cron = "0 0 0 * * ?") //Midnight
+    public void setEstimatedDateAsLate() {
+        if (!this.taskRepository.findAll().isEmpty()) {
+            List<Task> listFiltered = this.taskRepository.findAll().stream()
+                    .filter(t -> LocalDate.now().isAfter(t.getEstimatedDate()) && (!t.isFinished()))
+                    .toList();
+            if (!listFiltered.isEmpty()) {
+                listFiltered.forEach(t -> this.taskRepository.updateTaskStatus(t.getId(), 1));
+            }
+        }
+    }
+
 }
