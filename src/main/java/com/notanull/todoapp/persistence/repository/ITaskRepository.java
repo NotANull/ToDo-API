@@ -16,4 +16,8 @@ public interface ITaskRepository extends JpaRepository<Task, Long> {
     @Modifying
     @Query(value = "UPDATE TASK SET FINISHED=true WHERE ID=:id", nativeQuery = true)
     void markTaskAsFinished(/*@Param("id")*/ Long id);
+
+    @Modifying
+    @Query(value = "UPDATE TASK SET TASK_STATUS=:status WHERE ID=:id", nativeQuery = true)
+    void updateTaskStatus(Long id, int status);
 }
