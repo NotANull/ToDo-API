@@ -25,4 +25,10 @@ public class ExceptionController {
         ex.getFieldErrors().forEach(field -> errors.put(field.getField(), field.getDefaultMessage()));
         return new ResponseEntity<>(new ResponseErrorValidationDto(400, errors), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(OverdueTaskException.class)
+    public ResponseEntity<?> overdueTask(OverdueTaskException ex) {
+        ExceptionDto exceptionDto = new ExceptionDto(403, ex.getMessage());
+        return new ResponseEntity<>(exceptionDto, HttpStatus.FORBIDDEN);
+    }
 }
