@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ITaskRepository extends JpaRepository<Task, Long> {
@@ -20,4 +21,8 @@ public interface ITaskRepository extends JpaRepository<Task, Long> {
     @Modifying
     @Query(value = "UPDATE TASK SET TASK_STATUS=:status WHERE ID=:id", nativeQuery = true)
     void updateTaskStatus(Long id, int status);
+
+    @Modifying
+    @Query(value = "UPDATE TASK SET ESTIMATED_DATE=:date WHERE ID=:id", nativeQuery = true)
+    void updateEstimatedDate(Long id, LocalDate date);
 }

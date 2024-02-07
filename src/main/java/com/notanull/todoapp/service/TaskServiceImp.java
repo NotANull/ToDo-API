@@ -31,7 +31,6 @@ public class TaskServiceImp implements ITaskService {
         this.modelMapper = new ModelMapper();
     }
 
-
     @Override
     public TaskDto createTask(TaskDto taskDto) {
         Task task = mapper.map(taskDto); //ModelMapper could be used
@@ -58,7 +57,7 @@ public class TaskServiceImp implements ITaskService {
     @Transactional
     @Override
     public String updateTaskAsFinished(Long id) {
-        Optional<Task> task= this.taskRepository.findById(id);
+        Optional<Task> task = this.taskRepository.findById(id);
         if (task.isEmpty()) {
             throw new IdNotFoundException("Id not found");
         }
@@ -79,6 +78,19 @@ public class TaskServiceImp implements ITaskService {
         return "Task deleted successfully";
     }
 
+
+    //Corregir cuando haya fecha año/12/día
+    @Transactional
+    @Override
+    public String extendEstimatedDate(Long id) {
+        if (this.taskRepository.findById(id).isEmpty()){
+            return null;
+        }
+        this.taskRepository.updateTaskStatus(id, 0);
+        this.taskRepository.updateEstimatedDate(id, LocalDate.now().plusMonths(1));
+        return "The estimated date has been extended for one more month, please complete your assignment";
+    }
+
     @Transactional
     @Scheduled(cron = "0 0 0 * * ?") //Midnight
     public void setEstimatedDateAsLate() {
@@ -91,5 +103,5 @@ public class TaskServiceImp implements ITaskService {
             }
         }
     }
-
+    
 }

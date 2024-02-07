@@ -19,4 +19,6 @@ public interface ITaskService {
     String updateTaskAsFinished(Long id);
 
     String deleteById(Long id);
+
+    String extendEstimatedDate(Long id);
 }
