@@ -20,5 +20,4 @@ public interface ITaskService {
 
     String deleteById(Long id);
 
-    String extendEstimatedDate(Long id);
 }

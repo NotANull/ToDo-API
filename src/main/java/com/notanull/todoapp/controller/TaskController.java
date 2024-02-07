@@ -38,11 +38,6 @@ public class TaskController {
         return new ResponseEntity<>(this.taskService.updateTaskAsFinished(id), HttpStatus.OK);
     }
 
-    @PatchMapping("/extend_date/{id}")
-    public ResponseEntity<?> extendEstimatedDate(@PathVariable Long id) {
-        return new ResponseEntity<>(this.taskService.extendEstimatedDate(id), HttpStatus.OK);
-    }
-
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         return new ResponseEntity<>(this.taskService.deleteById(id), HttpStatus.OK);
